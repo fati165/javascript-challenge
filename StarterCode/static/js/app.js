@@ -37,7 +37,7 @@ var form = d3.select('#datetime')
 
 //make another function for the buttons to show stuff
 button.on('click', filts);
-form.on('submit', FileList)
+form.on('submit', filts)
 function filts(){
     //prevent page from refreshing
     d3.event.preventDefault();
