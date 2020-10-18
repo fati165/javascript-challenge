@@ -5,6 +5,7 @@
 //city, state, country, shape, and comment at 
 //the very least.
 
+//the input needs to 
 // from data.js
 var tableData = data;
 
@@ -26,20 +27,28 @@ function ufotable(input){
     })
 
 }
+//Use a date form in your HTML document and write JavaScript 
+//code that will listen for events and search through the date/time column to find rows that match user input.
 //Make buttons happen
+//use if statement?
+
 var button = d3.select('#filter-btn');
-var input1 = d3.select('#datetime')
+var form = d3.select('#datetime')
 
 //make another function for the buttons to show stuff
 button.on('click', filts);
+form.on('submit', FileList)
 function filts(){
     //prevent page from refreshing
     d3.event.preventDefault();
     tbody.html("");
     //filter date and time for search!
-    var filteredData = data.filter(data => data.datetime === input1);
+    var inputElement = d3.select("#datetime");
+    var inputValue = inputElement.property("value");
 
-    console.log(input1);
+    var filteredData = data.filter(data => data.datetime === form);
+
+    console.log(filteredData);
 }
 
 
