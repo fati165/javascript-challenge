@@ -17,9 +17,9 @@ tbody = d3.select("tbody")
 // loop through!
 function ufotable(input){
     tbody.html("");
-    input.foreach((row)=>{
+    input.forEach((row)=>{
         const tablerow = tbody.append("tr");
-        Object.values(row).foreach((value) => {
+        Object.values(row).forEach((value) => {
             let cell = tablerow.append("td");
             cell.text(value);
         } )
@@ -27,27 +27,29 @@ function ufotable(input){
     })
 
 }
+ufotable(tableData);
 //Use a date form in your HTML document and write JavaScript 
 //code that will listen for events and search through the date/time column to find rows that match user input.
 //Make buttons happen
 //use if statement?
 
 var button = d3.select('#filter-btn');
-var form = d3.select('#datetime')
-
 //make another function for the buttons to show stuff
 button.on('click', filts);
-form.on('submit', filts)
 function filts(){
     //prevent page from refreshing
+
     d3.event.preventDefault();
+
     tbody.html("");
+    var data = tableData;
+
     //filter date and time for search!
     var inputElement = d3.select("#datetime");
     var inputValue = inputElement.property("value");
-
-    var filteredData = data.filter(data => data.datetime === form);
-
+    //data=>data not reelated to data.filter
+    var filteredData = data.filter(data => data.datetime === inputValue);
+    ufotable(filteredData);
     console.log(filteredData);
 }
 
